@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Tamagochi</string>
+    <string name="Приветствие">Добро пожаловать! Меня зовут Лиля и мне нужна твоя помощь.</string>
+
 </resources>
