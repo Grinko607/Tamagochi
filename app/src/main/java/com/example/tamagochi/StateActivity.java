@@ -1,6 +1,7 @@
 package com.example.tamagochi;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -13,9 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class StateActivity extends AppCompatActivity {
     ProgressBar pB2, pB3, pB4, pB5, pB6;
     TextView tV, tV2, tV3, tV4, tV5;
-    ImageView sadi, si;
-    private final Handler handler = new Handler();
-    private int progressStatus = 0;
+    ImageView  si;
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,15 +40,10 @@ public class StateActivity extends AppCompatActivity {
         pB6.setProgress(Tamagochi.disease);
 
     }
-    public void onClick3(View view) {
-//        Intent intent = new Intent(this, LiliActivity.class);
-//        startActivity(intent);
-//        if (progressStatus> 80) {
-//            sadi.setVisibility(View.VISIBLE);
-//        }
-//        if (progressStatus < 80) {
-//            si.setVisibility(View.VISIBLE);
-//        }
+    public void onClick4(View view) {
+        Intent intent = new Intent(this, LiliActivity.class);
+        startActivity(intent);
+
     }
 }
 
