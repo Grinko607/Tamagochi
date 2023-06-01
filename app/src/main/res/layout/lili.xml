@@ -7,16 +7,13 @@
     android:background="@color/fairblue">
 
     <ProgressBar
-        android:id="@+id/progressBar8"
+        android:id="@+id/progressBardDay"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="283dp"
         android:layout_height="28dp"
-        android:layout_marginStart="70dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="58dp"
         android:background="@color/Ye"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
+        android:onClick="lilPlay"
         android:text="играть"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -67,6 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
         android:layout_marginBottom="52dp"
+        android:onClick="lilSleep"
         android:text="спать"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -75,47 +74,26 @@
         android:id="@+id/button8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="292dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:onClick="onClick2"
         android:text="состояние"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar8" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBardDay" />
 
     <ImageView
-        android:id="@+id/sadimage"
-        android:layout_width="539dp"
-        android:layout_height="812dp"
+        android:id="@+id/imageState"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button6"
-        app:layout_constraintHorizontal_bias="0.173"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/bad" />
-
-    <ImageView
-        android:id="@+id/smileimage"
-        android:layout_width="543dp"
-        android:layout_height="819dp"
-        android:layout_marginBottom="4dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
         app:srcCompat="@drawable/smile" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="58dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="464dp"
-        app:layout_constraintBottom_toTopOf="@+id/button5"
-        app:layout_constraintEnd_toStartOf="@+id/button8"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/progressBar8" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
