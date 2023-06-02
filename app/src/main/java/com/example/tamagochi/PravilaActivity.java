@@ -12,7 +12,7 @@ public class PravilaActivity extends AppCompatActivity {
     ImageView imageView1,img2;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pravila);
         textView = findViewById(R.id.textView6);

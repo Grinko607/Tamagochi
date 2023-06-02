@@ -1,10 +1,13 @@
 package com.example.tamagochi;
 
+import static kotlinx.coroutines.DelayKt.delay;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -14,28 +17,31 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.security.auth.callback.Callback;
 
 public class LiliActivity extends AppCompatActivity {
-
+    ProgressBar pB8;
     TextView tV7;
     Button bt2, bt3, bt4, bt5, bt6;
     ImageView imageState;
     private final Handler handler = new Handler();
     private int progressStatus = 0;
+    private boolean Lilsleep = false, eat = false, play = false, fun = false, heal = false,day=false;
 
-    private boolean Lilsleep = false, eat = false, play = false, fun = false, heal = false;
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lili);
-
+        pB8 = findViewById(R.id.progressBar);
         tV7 = findViewById(R.id.textView7);
         bt2 = findViewById(R.id.button2);
         bt3 = findViewById(R.id.button3);
@@ -43,39 +49,56 @@ public class LiliActivity extends AppCompatActivity {
         bt5 = findViewById(R.id.button5);
         bt6 = findViewById(R.id.button6);
         imageState = findViewById(R.id.imageState);
-
-
 //Основной цикл дня
-        new Thread(new Runnable() {
+        Lilsleep = true;
+        eat = true;
+        play = true;
+        fun = true;
+        heal = true;
+        day = true;
+      new Thread(new Runnable() {
+            @SuppressLint("SetTextI18n")
             public void run() {
-                while (progressStatus < 100) {
-                    progressStatus += 6;
+                while (Tamagochi.day < 100) {
+                    Tamagochi.day++;
+                    SystemClock.sleep(50000);
                     checkState();
                     handler.post(new Runnable() {
                         @SuppressLint("SetTextI18n")
                         public void run() {
-                            tV7.setText("1");
+
+
+                            String strProgress = Tamagochi.day + " day";
+                            tV7.setText(strProgress);
+                            pB8.setProgress(Tamagochi.day);
                         }
                     });
-                    try {
-                        Thread.sleep(2000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    Tamagochi.fatigue++;
-                    Tamagochi.hunger++;
-                    Tamagochi.disease++;
-                    Tamagochi.anger++;
-                    Tamagochi.boredom++;
 
-                    //Сделать проверку на состояние если всё плохо, то нужно добить и начать занаво
-                    //посмотреть что такое left dialog
                 }
+
+                try {
+                    Thread.sleep(200000L);
+
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+
+
+                Tamagochi.fatigue++;
+                Tamagochi.hunger++;
+                Tamagochi.disease++;
+                Tamagochi.anger++;
+                Tamagochi.boredom++;
+                Tamagochi.day++;
+
+
+
+                //Сделать проверку на состояние если всё плохо, то нужно добить и начать занаво
+                //посмотреть что такое left dialog
+
             }
         }).start();
     }
-
-
 
 
 
@@ -85,8 +108,8 @@ public class LiliActivity extends AppCompatActivity {
     }
 
     public void PravilClick(View view) {
-        Intent intent3 = new Intent(this, PravilaActivity.class);
-       startActivity(intent3);
+        Intent intent = new Intent(this, PravilaActivity.class);
+        startActivity(intent);
     }
 
     //Дописать проверку на все состояния

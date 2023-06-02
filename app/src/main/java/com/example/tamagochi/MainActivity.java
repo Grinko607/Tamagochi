@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         public void onClick (View view){
             Intent intent = new Intent(this, LiliActivity.class);
             startActivity(intent);
+
         }
 
 }
